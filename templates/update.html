@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Actualizar Empleado</title>
+</head>
+<body>
+ <h1>Actualizar Empleado</h1>
+ <form method="POST">
+ <label>Nombre:</label>
+ <input type="text" name="nombre" value="{{ empleado.nombre }}">
+ <br>
+ <label>Puesto:</label>
+ <input type="text" name="puesto" value="{{ empleado.puesto }}">
+ <br>
+ <label>Salario:</label>
+ <input type="text" name="salario" value="{{ empleado.salario }}">
+ <br>
+ <button type="submit">Actualizar</button>
+ </form>
+ <a href="{{ url_for('index') }}">Volver a la lista</a>
+</body>
+</html>
