@@ -1,18 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
- <title>Gestión de Empleados</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Empleados</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; 
+        }
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .container {
+            margin-top: 30px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table th.custom-header {
+            background-color: #cce5ff;
+            color: #004085; 
+        }
+        .table th, .table td {
+            vertical-align: middle; 
+        }
+        .btn {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
- <h1>Lista de Empleados</h1>
- <a href="{{ url_for('create') }}">Crear Nuevo Empleado</a>
- <ul>
- {% for empleado in empleados %}
- <li>{{ empleado.nombre }} - {{ empleado.puesto }} - ${{ empleado.salario }}
- <a href="{{ url_for('update', id=empleado.id) }}">Editar</a>
- <a href="{{ url_for('delete', id=empleado.id) }}">Eliminar</a>
- </li>
- {% endfor %}
- </ul>
+    <div class="container">
+        <h1>Gestión de Empleados</h1>
+        <div class="text-center mb-3">
+            <a href="{{ url_for('create') }}" class="btn btn-success">Crear Nuevo Empleado</a>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="custom-header">Nombre</th>
+                    <th class="custom-header">Puesto</th>
+                    <th class="custom-header">Salario</th>
+                    <th class="custom-header">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empleado in empleados %}
+                <tr>
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.puesto }}</td>
+                    <td>${{ empleado.salario }}</td>
+                    <td>
+                        <a href="{{ url_for('update', id=empleado.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ url_for('delete', id=empleado.id) }}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,22 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
- <title>Crear Empleado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Empleado</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #d4edda; /* Color verde claro */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Ancho máximo del formulario */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 48%; /* Hacer que los botones sean más pequeños */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Azul */
+            border-color: #007bff;
+        }
+        .btn-secondary {
+            background-color: #6c757d; /* Gris */
+            border-color: #6c757d;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between; /* Alinear botones horizontalmente */
+        }
+    </style>
 </head>
 <body>
- <h1>Crear Nuevo Empleado</h1>
- <form method="POST">
- <label>Nombre:</label>
- <input type="text" name="nombre">
- <br>
- <label>Puesto:</label>
- <input type="text" name="puesto">
- <br>
- <label>Salario:</label>
- <input type="text" name="salario">
- <br>
- <button type="submit">Crear</button>
- </form>
- <a href="{{ url_for('index') }}">Volver a la lista</a>
+    <br>
+    <br>
+    <div class="container">
+       
+        <h1>Crear Nuevo Empleado</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input autocomplete="off" type="text" class="form-control" name="nombre" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="puesto">Puesto:</label>
+                <input autocomplete="off" type="text" class="form-control" name="puesto" id="puesto" required>
+            </div>
+            <div class="form-group">
+                <label for="salario">Salario:</label>
+                <input autocomplete="off" type="text" class="form-control" name="salario" id="salario" required>
+            </div>
+            <div class="button-group mt-3">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

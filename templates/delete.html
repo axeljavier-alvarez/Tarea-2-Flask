@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
- <title>Eliminar Empleado</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Empleado</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo claro */
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #f8d7da; /* Color rojo claro */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Ancho máximo del formulario */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 48%; 
+        }
+        .btn-danger {
+            background-color: #dc3545; /* Rojo */
+            border-color: #dc3545;
+        }
+        .btn-secondary {
+            background-color: #6c757d; 
+            border-color: #6c757d;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
- <h1>Eliminar Empleado</h1>
- <p>¿Estás seguro de que quieres eliminar a {{ empleado.nombre }}?</p>
- <form method="POST">
- <button type="submit">Eliminar</button>
- </form>
- <a href="{{ url_for('index') }}">Cancelar</a>
+    <br>
+    <br>
+    <div class="container">
+        <h1>Eliminar Empleado</h1>
+        <p>¿Estás seguro de que quieres eliminar a {{ empleado.nombre }}?</p>
+        <form method="POST" class="mt-3">
+            <div class="button-group">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
